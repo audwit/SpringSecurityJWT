@@ -1,4 +1,4 @@
-package com.io.javabrains.springsecurityjwt.services;
+package io.javabrains.springsecurityjwt.services;
 
 import java.util.ArrayList;
 
