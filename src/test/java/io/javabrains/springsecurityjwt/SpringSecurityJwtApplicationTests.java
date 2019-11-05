@@ -1,4 +1,4 @@
-package com.io.javabrains.springsecurityjwt;
+package io.javabrains.springsecurityjwt;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
