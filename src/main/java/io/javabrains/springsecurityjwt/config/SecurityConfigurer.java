@@ -1,4 +1,4 @@
-package io.javabrains.springsecurityjwt;
+package io.javabrains.springsecurityjwt.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +14,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import io.javabrains.springsecurityjwt.services.MyUserDetailsService;
 
-@EnableWebSecurity
+//@EnableWebSecurity
 public class SecurityConfigurer extends WebSecurityConfigurerAdapter
 {
 	@Autowired
