@@ -27,14 +27,15 @@ public class JwtRequestFilter extends OncePerRequestFilter
 	@Autowired
 	private JwtUtil jwtUtil;
 	
-	@Override
-	protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException
-	{
-		if(request.getServletPath().contains("/authenticate"))
-			return true;
-		else 
-			return false;
-	}
+//	//This method below disables the filter for an endpoint
+//	@Override
+//	protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException
+//	{
+//		if(request.getServletPath().contains("/authenticate"))
+//			return true;
+//		else 
+//			return false;
+//	}
 	
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
@@ -63,9 +64,10 @@ public class JwtRequestFilter extends OncePerRequestFilter
 						(userDetails, null, userDetails.getAuthorities() );
 				SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
 			}
-			//Keep on filtering if there are more filters that should be applied
-			chain.doFilter(request, response);
 		}
+		
+		//Keep on filtering if there are more filters that should be applied
+		chain.doFilter(request, response);
 	}
 	
 	
