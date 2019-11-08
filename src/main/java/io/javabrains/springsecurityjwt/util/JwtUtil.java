@@ -14,7 +14,11 @@ import java.util.function.Function;
 @Service
 public class JwtUtil {
 
-    private String SECRET_KEY = "secret";
+    /*
+    io.jsonwebtoken.security.WeakKeyException: The signing key's size is 32 bits which is not secure enough for the HS256 algorithm.
+    The JWT JWA Specification (RFC 7518, Section 3.2) states that keys used with HS256 MUST have a size >= 256 bits (the key size must be greater than or equal to the hash output size).  Consider using the io.jsonwebtoken.security.Keys class's 'secretKeyFor(SignatureAlgorithm.HS256)' method to create a key guaranteed to be secure enough for HS256.  See https://tools.ietf.org/html/rfc7518#section-3.2 for more information.
+     */
+    private String SECRET_KEY = "secretsecretsecretsecretsecretsecretsecretsecretsecretsecretsecretsecret";
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
@@ -45,7 +49,8 @@ public class JwtUtil {
 
         return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
-                .signWith(SignatureAlgorithm.HS256, SECRET_KEY).compact();
+                .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
+            .compact();
     }
 
     public Boolean validateToken(String token, UserDetails userDetails) {
