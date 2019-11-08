@@ -59,7 +59,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.io.javabrains.springsecurityjwt.SpringSecurityJwtApplication</mainClass>
+					<mainClass>io.javabrains.springsecurityjwt.SpringSecurityJwtApplication</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
